@@ -1,15 +1,9 @@
 class Player(
-    private val name: String,
+    val name: String,
     private var hp: Int,
     private var damage: Int,
     // private val inventory: Inventory
 ) {
-    
-    init {
-        require(hp >= 0) {
-            "Zero HP or less is not allowed"
-        }
-    }
     private var xp: Int = 0
     fun isAlive(): Boolean = hp > 0
     
@@ -25,5 +19,13 @@ class Player(
     
     fun incrementXp(xpReward: Int) {
         xp = xp + xpReward
+    }
+    
+    fun getHp(): Int {
+        return hp
+    }
+    
+    fun getXp(): Int {
+        return xp
     }
 }

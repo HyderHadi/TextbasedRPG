@@ -3,9 +3,12 @@
 
 fun main() {
     
-    val player = Player("Hyder Hadi", 100, 15)
-    val enemy = Enemy("Goblin", 40, 10, 20)
+    val ui = ConsoleUi()
     
+    val player = ui.createPlayerCharacter()
     
+    val enemy = Enemy("Troll", 50, 60, 15)
+    
+    ui.startMainUi(player, enemy)
     
 }

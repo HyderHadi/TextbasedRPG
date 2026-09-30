@@ -1,15 +1,9 @@
 class Enemy(
-    private val name: String,
+    val name: String,
     private var hp: Int,
     private var damage: Int,
-    private val xpReward: Int
+    val xpReward: Int
 ) {
-    
-    init {
-        require(hp >= 0) {
-            "Zero HP or less is not allowed"
-        }
-    }
     
     fun isAlive(): Boolean = hp > 0
     
@@ -27,5 +21,9 @@ class Enemy(
         if(!isAlive()) {
             player.incrementXp(xpReward)
         }
+    }
+    
+    fun getHp(): Int {
+        return hp
     }
 }
