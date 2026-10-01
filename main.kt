@@ -1,14 +1,18 @@
-
+fun characterCreationDialog(): String {
+    print("Type your name: ")
+    val name: String = readln()
+    return name
+}
 
 
 fun main() {
+    val playerName = characterCreationDialog()
+    val demoLevel = DemoLevel(name = "Generic Level", playerName)
+    val demoLevelgameCoordinator = DemoLevelGameCoordinator(demoLevel)
+    val ui = ConsoleUi(
+        demoLevelgameCoordinator, demoLevel
+    )
     
-    val ui = ConsoleUi()
-    
-    val player = ui.createPlayerCharacter()
-    
-    val enemy = Enemy("Troll", 50, 60, 15)
-    
-    ui.startMainUi(player, enemy)
+    ui.startLevel()
     
 }
