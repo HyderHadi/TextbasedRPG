@@ -1,4 +1,4 @@
-class Enemy(
+open class Enemy(
     name: String,
     hp: Int,
     damage: Int,
