@@ -7,7 +7,7 @@ class DemoLevel(
     // a single enemy
     val enemy = Enemy(
         "Troll",
-            50,
+            200,
                 35,
                     15
     )

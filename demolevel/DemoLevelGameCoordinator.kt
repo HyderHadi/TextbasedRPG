@@ -11,11 +11,11 @@ class DemoLevelGameCoordinator(
                 if(!demoLevel.player.isAlive()) {
                     return "You Lost, Your HP is ${demoLevel.player.getHp()}"
                 } else if(!demoLevel.enemy.isAlive()) {
-                    return "You Won the ${demoLevel.enemy.name} is dead."
+                    return "You Won the ${demoLevel.enemy.name} is dead\nXP: ${demoLevel.enemy.xpReward}/100"
                 } else {
                     return """
                         ${demoLevel.player.name} attacked and the ${demoLevel.enemy.name} HP is ${demoLevel.enemy.getHp()}
-                        ${demoLevel.enemy.name} attacked and ${demoLevel.player.name} HP is ${demoLevel.player.getHp()}
+                        ${demoLevel.enemy.name} attacked and ${demoLevel.player.name} HP's is ${demoLevel.player.getHp()}
                     """.trimIndent()
                 }
             }
