@@ -7,9 +7,9 @@ class ConsoleUi(
     
     
     fun startLevel() {
-        demoLevel.pauseGameEffect()
+        demoLevelgameCoordinator.pauseGameEffect()
         println("You stepped into an abandoned cave ...")
-        demoLevel.pauseGameEffect()
+        demoLevelgameCoordinator.pauseGameEffect()
         println(". . .\n")
         println("An angry troll is looking at ya, and more than ready to fight")
 
