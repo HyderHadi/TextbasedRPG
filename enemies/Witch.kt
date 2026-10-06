@@ -2,7 +2,7 @@ class Witch: Enemy(
     name = "Witch",
         hp = 439,
             damage = 46,
-                xpReward = 40
+                xpReward = 400
 ) {
     fun dropStaffOfOrigination(): Boolean {
         if(!isAlive()) {

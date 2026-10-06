@@ -2,20 +2,11 @@ class DemoLevel(
     name: String,
     val playerName: String
 ): Level(name) {
-    
-    
+
+
     // a single enemy
-    val enemy = Enemy(
-        "Troll",
-            200,
-                35,
-                    15
-    )
-    
+    val goblin = Goblin()
+
     // the player
-    val player = Player(
-        playerName,
-            hp = 100,
-                damage = 30
-    )
+    var player = Player(playerName)
 }

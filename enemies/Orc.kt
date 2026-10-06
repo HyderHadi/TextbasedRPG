@@ -2,7 +2,7 @@ class Orc: Enemy(
     name = "Orc",
         hp = 260,
             damage = 27,
-                xpReward = 20
+                xpReward = 200
 ) {
     fun dropHammer(): Boolean {
         if(!isAlive()) {

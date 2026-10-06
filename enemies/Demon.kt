@@ -2,7 +2,7 @@ class Demon: Enemy(
     name = "Demon",
         hp = 571,
             damage = 60,
-                xpReward = 100
+                xpReward = 1000
 ) {
     fun dropSkullOfGuldan(): Boolean {
         if(!isAlive()) {

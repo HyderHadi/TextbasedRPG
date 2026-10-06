@@ -1,21 +1,32 @@
 class DemoLevelGameCoordinator(
     private val demoLevel: DemoLevel
 ): GameCoordinator(demoLevel) {
-    
+
     override fun parseCommand(command: String): String {
         when(command.lowercase()) {
             "attack" -> {
-                demoLevel.player.attack(demoLevel.enemy)
-                demoLevel.enemy.attack(demoLevel.player)
+                demoLevel.player.attack(demoLevel.goblin)
+                demoLevel.goblin.attack(demoLevel.player)
                 pauseGameEffect()
                 if(!demoLevel.player.isAlive()) {
                     return "You Lost, Your HP is ${demoLevel.player.getHp()}"
-                } else if(!demoLevel.enemy.isAlive()) {
-                    return "You Won the ${demoLevel.enemy.name} is dead\nXP: ${demoLevel.enemy.xpReward}/100"
+                } else if(!demoLevel.goblin.isAlive()) {
+                    demoLevel.goblin.giveXpRewardUponDeath(demoLevel.player)
+                    val updatedPlayer = demoLevel.player.levelUpPlayerOnXp()
+                    demoLevel.player = updatedPlayer
+                    return """
+                    You Won the ${demoLevel.goblin.name} is dead
+                    You leveled up to ${demoLevel.player.getPlayerLevel()}
+
+                    Your stats:
+                        xp: ${demoLevel.player.getXp()}
+                        HP: ${demoLevel.player.getHp()}
+                        damage: ${demoLevel.player.getDamage()}
+                    """.trimIndent()
                 } else {
                     return """
-                        ${demoLevel.player.name} attacked and the ${demoLevel.enemy.name} HP is ${demoLevel.enemy.getHp()}
-                        ${demoLevel.enemy.name} attacked and ${demoLevel.player.name} HP's is ${demoLevel.player.getHp()}
+                        ${demoLevel.player.name} attacked and the ${demoLevel.goblin.name} HP is ${demoLevel.goblin.getHp()}
+                        ${demoLevel.goblin.name} attacked and ${demoLevel.player.name} HP is ${demoLevel.player.getHp()}
                     """.trimIndent()
                 }
             }
